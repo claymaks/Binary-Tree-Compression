@@ -46,7 +46,7 @@ class Node(object):
 
     def get_right(self):
 
-        return(self.rightx.get_L)
+        return(self.right.get_L)
 
     def __lt__(self, other):
 
