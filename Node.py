@@ -10,41 +10,43 @@ class Node(object):
 
         return
 
-    def ins_L(self, node):
+    def insert_left(self, node):
 
         self.left = node
 
         return
 
-    def ins_R(self, node):
+    def insert_right(self, node):
 
         self.right = node
 
         return
 
-    def del_L(self, node):
+    def __del__(self):
+        self._delete_Node(self.left)
+        self._delete_Node(self.right)
 
-        self.left = None
+    def _delete_Node(self, node):
+        if node and node.left:
+            print("l")
+            self._delete_Node(node.left)
+        if node and node.right:
+            print("r")
+            self._delete_Node(node.right)
+        if node and not node.right and not node.left:
+            del node
 
-        return
-
-    def del_R(self, node):
-
-        self.right = None
-
-        return
-
-    def get_D(self):
+    def get_datum(self):
 
         return(self.datum)
 
-    def get_L(self):
+    def get_left(self):
 
         return(self.left)
 
-    def get_R(self):
+    def get_right(self):
 
-        return(self.right)
+        return(self.rightx.get_L)
 
     def __lt__(self, other):
 
