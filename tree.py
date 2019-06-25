@@ -1,4 +1,5 @@
 from Node import Node
+import random
 
 class tree(object):
     def __init__(self):
@@ -33,8 +34,8 @@ class tree(object):
             return None
         if node == query:
             return node
-        if node.get_right() and query < node:
-            return self._find(node.get_right(), query)
+        if node.get_left() and query < node:
+            return self._find(node.get_left(), query)
 	
         elif node.get_right() and node < query:
             return self._find(node.get_right(), query)
@@ -52,7 +53,6 @@ class tree(object):
     def _insert(self, node, val):
         if not node:
             return val
-
         elif not node.get_left() and val < node:
             node.insert_left(val)
             return node
@@ -65,20 +65,31 @@ class tree(object):
             self._insert(node.get_left(), val)
 
         elif node.get_datum() < val:
-            self._insert(node.get_right, val)
+            self._insert(node.get_right(), val)
         else:
             return None
 
-	
+    def lcr_print(self):
+        self._lcr_print(self.root)
+
+    def _lcr_print(self, node):
+        if node.get_left():
+            self._lcr_print(node.get_left())
+        print(node.get_datum(), end=" ")
+        if node.get_right():
+            self._lcr_print(node.get_right())
+
+
+    
+        
         
 if __name__ == "__main__":
     x = tree()
-    x.insert(5)
-    x.insert(6)
-    print(x.height())
-    x.insert(4)
-    print(x.height())
-    print(x.root.datum)
-    print(x.root.right.datum)
-    print(x.root.left.datum)
+    x.insert(50)
+    for i in range(0,100): 
+        x.insert(random.randint(0,100))
+    x.lcr_print()
+
     
+    
+                 
