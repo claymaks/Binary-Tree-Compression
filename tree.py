@@ -1,11 +1,11 @@
-#import Node
+from Node import Node
 
 class tree(object):
     def __init__(self):
         self.root = None
 
     def is_empty(self):
-        return self.root != None
+        return self.root == None
 
     def size(self):
         return self._size(self.root)
@@ -21,9 +21,10 @@ class tree(object):
     def _height(self, node):
         if not node:
             return 0
-        return 1 + max(self.height_(node.get_left), self.height_(node.get_right))
+        return 1 + max(self._height(node.get_left()), self._height(node.get_right()))
     
     def find(self, query):
+        #fix
         query = Node(query)
         return self._find(self.root, query)
     
@@ -33,7 +34,7 @@ class tree(object):
         if node == query:
             return node
         if node.get_right() and query < node:
-            return self._find(node.get_right, query)
+            return self._find(node.get_right(), query)
 	
         elif node.get_right() and node < query:
             return self._find(node.get_right(), query)
@@ -42,8 +43,11 @@ class tree(object):
             return None
 
     def insert(self, val):
-        val = Node(val)
-        self._insert(self.root, val)
+        if self.is_empty():
+            self.root = Node(val)
+        else:
+            val = Node(val)
+            self._insert(self.root, val)
 
     def _insert(self, node, val):
         if not node:
@@ -67,3 +71,14 @@ class tree(object):
 
 	
         
+if __name__ == "__main__":
+    x = tree()
+    x.insert(5)
+    x.insert(6)
+    print(x.height())
+    x.insert(4)
+    print(x.height())
+    print(x.root.datum)
+    print(x.root.right.datum)
+    print(x.root.left.datum)
+    
