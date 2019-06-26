@@ -1,1 +1,1 @@
-Hello World
+This is a full text sample of for the text-to-binary script for the binary tree compression algorithm.

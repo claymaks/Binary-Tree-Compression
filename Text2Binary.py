@@ -2,6 +2,19 @@
 
 import math
 
+def write_txt(name, string):
+
+    name = 'Bin_' + name
+    new_file = open(name, 'w+')
+
+    for char in string:
+
+        new_file.write(char)
+
+    new_file.close()
+
+    return
+
 def getBin(num):
 
     binlist = ['0','0','0','0','0','0','0','0']
@@ -20,16 +33,21 @@ def getBin(num):
     
 def getText():
 
-    txtFile = open('Sample.txt', 'r')
+    file_name = input('Enter the name(with extension) of the file you want to convert: ')
+    txtFile = open(file_name, 'r')
 
+    full_bin = ''
+    
     for x in txtFile:
 
         for i in x:
 
             binlist = getBin(ord(i))
             binstr = ''.join(binlist)
+
+            full_bin = full_bin + binstr
             
-            print(binstr)
+    write_txt(file_name, full_bin)
 
     txtFile.close()
     
