@@ -15,6 +15,25 @@ class fg(object):
                     for n, sublist in enumerate(self.characters):
                         if c in sublist:
                             self.characters[n][1] += 1
+        
+
+class encode(object):
+    def open_file(self, textfile):
+        self.reader = open(textfile, "r")
+        n,e = textfile.split(".")
+        self.textfile = n + ".huffman." + e
+        self.f = open(self.textfile, "w")
+        self.f.close()
+        
+    def write(self, string):
+        self.f = open(self.textfile, 'a')
+        self.f.write(string)
+        self.f.close()
+
+    def encode(self, func):
+        for word in self.reader:
+            for c in word:
+                self.write(func(c))
                 
 
 if __name__ == "__main__":
@@ -26,3 +45,9 @@ if __name__ == "__main__":
     reader.characters = []
     reader.gen_freq()
     print(reader.characters)
+
+
+    e = encode()
+    e.open_file("sample_text.txt")
+    e.write("hi")
+    e.write("hello")
