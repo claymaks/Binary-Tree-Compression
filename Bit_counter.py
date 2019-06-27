@@ -1,7 +1,28 @@
 #Bit counter
 
-def bit_counter():
+class bitCounter(object):
 
-    char_in = input('Entrer name(with extension) of original character file: ')
-    bit_in = input('Enter name(with extentsion) of converted bit file: ')
-    enc_in = input('Enter name(with extension) of encoded bit file: ')
+    def bitCounter(fileName):
+
+        file = open(fileName, "r")
+
+        bitcntr = 0
+
+        for x in file:
+
+            for i in x:
+
+                if isinstance(i, int):
+                    
+                    bitcntr += 1
+
+                else:
+
+                    bitcntr += 8
+        file.close()
+
+        return bitcntr
+
+
+
+        
