@@ -1,0 +1,10 @@
+st4File size: 92782
+Estimated time greater than: 13.809886317661826 seconds.
+Simulated on 2.3 GHz Intel Core i5
+Time to run: 22.353277921676636
+Initial bits in file: 742256
+Final bits in file: 392018
+Compression ratio: 1.8934232611767827
+Huffman tree size: 1864 bits
+Total size: 393882
+Transfer cutdown to: 54 %

@@ -1,0 +1,10 @@
+st5File size: 278350
+Estimated time greater than: 175.0131602228219 seconds.
+Simulated on 2.3 GHz Intel Core i5
+Time to run: 181.8859670162201
+Initial bits in file: 2226800
+Final bits in file: 1176086
+Compression ratio: 1.8933989521174472
+Huffman tree size: 2040 bits
+Total size: 1178126
+Transfer cutdown to: 53 %
