@@ -131,18 +131,17 @@ class huffman(object):
 
     def _translate(self, node, bit):
         if len(bit) > 0:
-            if bit[0] == 0:
+            if bit[0] == "0":
                 if node.get_left():
-                    self._translate(node.get_left(), bit[1:])
+                    return self._translate(node.get_left(), bit[1:])
                 else:
-                    print(node.get_datum()[0])
-                    return node.get_datum()[0]
-            if bit[0] == 1:
+                    return node.get_datum()[0], bit
+            if bit[0] == "1":
                 if node.get_right():
-                    self._translate(node.get_right(), bit[1:])
+                    return self._translate(node.get_right(), bit[1:])
                 else:
-                    print(node.get_datum()[0])
-                    return node.get_datum()[0]
+                    return node.get_datum()[0], bit
+        return node.get_datum()[0], bit
             
 
     def insert(self, lst):
@@ -191,8 +190,12 @@ if __name__ == "__main__":
     #h.lcr_print()
     #print()
     c = h.find_char('c')
-    print(c)
-    print(h.translate(c))
+    a = h.find_char('a')
+    string = str(c + a)
+    print(string)
+    while string:
+        char, string = h.translate(string)
+        print(char, end = "")
     
     #print()
     #for i in h.log:

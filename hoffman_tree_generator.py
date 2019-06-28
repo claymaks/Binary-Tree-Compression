@@ -1,5 +1,5 @@
 from tree import huffman
-from text_reader import fg, encode
+from txtIO import fg, encode
 
 reader = fg()
 reader.read("sample_text.txt")
@@ -14,3 +14,5 @@ print(h.find_char('j'), h.find_char('d'), h.find_char(' '))
 e = encode()
 e.open_file("sample_text.txt")
 e.encode(h.find_char)
+
+
