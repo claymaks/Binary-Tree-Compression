@@ -17,16 +17,16 @@ e.open_file("sample_text.txt")
 e.encode(he.find_char)
 
 #exports sorted_chars as list to text document
-'"sample_text.tree.txt"'
+theFile = 'sample_text.tree.txt'
 
+listIO.exportList(theFile,sorted_char)
 
 #import sample_text.tree.txt as list
-
-
+impList = listIO.importList(theFile)
 
 #load list into tree
 hd = huffman()
-hd.insert(sorted_chars)
+hd.insert(impList)
 
 #load sample_text.huffman.txt
 reader = fg()
@@ -50,21 +50,21 @@ s = input("Files complete. Press \"s\" for stats >>> ")
 if s == "s":
     #ANALYZE FILES
 
+    pass
+    #print("Initial bits in file:", )
 
-    print("Initial bits in file:", )
-
-    print("Final bits in file:", )
+    #print("Final bits in file:", )
 
     #uncompressed / compressed
-    print("Compression ratio:", )
+    #print("Compression ratio:", )
 
-    print("Huffman tree size:", )
+    #print("Huffman tree size:", )
 
     #final bits + huffman tree bits
-    print("Total size:", )
+    #print("Total size:", )
     
     #100 * (compressed + huffman tree) / uncompressed
-    print("Space saved:", )
+    #print("Space saved:", )
 
 
 
