@@ -43,9 +43,10 @@ class Text2Binary(object):
 
             for i in x:
 
-                self.fullBin = self.getBin(ord(i))
+                fullString = self.getBin(ord(i))
 
-                self.writeText(self.fullBin)
+
+        self.writeText(self.fullBin)
 
         (self.txtFile).close()
         
