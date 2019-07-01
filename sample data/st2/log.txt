@@ -1,0 +1,10 @@
+sample_text_2File size: 15462
+Estimated time greater than: 1.907361209919233 seconds.
+Simulated on 2.3 GHz Intel Core i5
+Time to run: 2.7899580001831055
+Initial bits in file: 123696
+Final bits in file: 65323
+Compression ratio: 1.893605621297246
+Huffman tree size: 1616 bits
+Total size: 66939
+Transfer cutdown to: 55 %

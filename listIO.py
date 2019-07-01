@@ -16,11 +16,15 @@ class listIO(object):
             
             for x in i:
 
-                if x != '\n':
-                    
-                    fileString = fileString + x
-
-            fullList.append(list(fileString))
+                if x != '\n' or not fileString:
+                    if x == "\n":
+                        fileString = fileString + "\\n"
+                    else:
+                        fileString = fileString + x
+            if fileString[0] == "\\":
+                fullList.append([fileString[0:2], int(fileString[2:])])
+            else:
+                fullList.append([fileString[0], int(fileString[1:])])
 
         readFile.close()
 
@@ -33,9 +37,11 @@ class listIO(object):
         for i in theList:
 
             for k in i:
-
-                theString = theString + str(k)
-
+                if k == "\n":
+                    theString = theString + "\\n"
+                else:
+                    theString = theString + str(k)
+        
             theString = theString + '\n'
 
         newFile = open(fileName,'w+')
