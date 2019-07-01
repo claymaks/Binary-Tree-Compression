@@ -19,7 +19,7 @@ e.encode(he.find_char)
 #exports sorted_chars as list to text document
 theFile = 'sample_text.tree.txt'
 
-listIO.exportList(theFile,sorted_char)
+listIO.exportList(theFile,sorted_chars)
 
 #import sample_text.tree.txt as list
 impList = listIO.importList(theFile)
